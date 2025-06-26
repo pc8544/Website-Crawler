@@ -21,6 +21,7 @@ Pass your key as a query parameter (`key`) in all requests.
 
 ## 🌐 Base URL
 
+https://www.websitecrawler.org/api
 
 ---
 
@@ -31,8 +32,67 @@ Pass your key as a query parameter (`key`) in all requests.
 Initiate a new crawl for a given domain.
 
 - **Query Parameters**:
-  - `domain` (string, required): Target website (e.g. `example.com`)
+  - `url` (string, required): Target website (e.g. `example.com`)
   - `limit` (integer, required): Max pages to crawl
   - `key` (string, required): Your API Key
 
-- **Sample Request**:
+- **Sample Request to initiate crawling**:
+
+- https://www.websitecrawler.org/api/crawl/start?url=wptls.com&limit=50&key=YOUR_API_KEY
+
+- - **Sample Response**:
+```json
+{
+  "status": "Crawling"
+}
+- - **Sample Response**:
+```json
+{
+  "status": "Completed!"
+}
+
+### 2. `GET /crawl/cwdata`
+
+Retrieve the structured crawl output once crawling has completed.
+
+- **Query Parameters**:
+  - `url` (string, required): Target website (e.g. `example.com`)
+  - `key` (string, required): Your API Key
+
+- - **Sample Response**:
+```json
+{
+  "status": [
+    {
+      "tt": "WPTLS - WordPress Plugins, themes and related services",
+      "np": "12",
+      "h1": "",
+      "nw": "534",
+      "h2": "Why learn HTML when there is WordPress?",
+      "h3": "",
+      "h4": "",
+      "h5": "",
+      "atb": "Why learn HTML when there is WordPress?",
+      "sc": "200",
+      "md": "Reviews, comparison, and collection of top WordPress themes, plugins, related services, and useful WP tips.",
+      "elsc": "",
+      "textCN": "Websitedata.",
+      "d": "",
+      "mr": "follow, index",
+      "pname": "wptls.com",
+      "al": "",
+      "cn": "https://wptls.com/",
+      "kw": "",
+      "url": "https://wptls.com",
+      "at": "",
+      "external_links": "https://www.facebook.com/wptls",
+      "tm": "96",
+      "image_links": "https://wptls.com/wp-content/uploads/2021/12/cropped-wptls-logo.png | https://wptls.com/wp-content/uploads/2021/12/cropped-wptls-logo.png | https://wptls.com/wp-content/uploads/2024/02/Spaceship-768x378.jpg | https://wptls.com/wp-content/uploads/2023/12/AdSense-768x612.png | https://wptls.com/wp-content/uploads/2023/12/Exabytes-768x375.jpg | https://wptls.com/wp-content/uploads/2023/10/HTML-768x112.jpg | https://wptls.com/wp-content/uploads/2023/10/Cloudflare-add-site-768x363.png | https://wptls.com/wp-content/uploads/2023/01/Google-Trends-768x363.webp | https://wptls.com/wp-content/uploads/2022/11/Twenty-Twenty-Three-768x351.webp | https://wptls.com/wp-content/uploads/2022/11/Broken-Link-Checker-768x223.webp | https://wptls.com/wp-content/uploads/2022/11/wordpress_logo.webp | https://wptls.com/wp-content/uploads/2022/11/footer-css-768x327.webp",
+      "internal_links": "https://wptls.com/why-learn-html-when-there-is-wordpress/ | https://wptls.com/customize-footer-wordpress/",
+      "nofollow_links": ""
+    }
+  ]
+}
+
+##👋 Feedback & Support
+Found a bug or need help? Open an issue or connect via [websitecrawler.org](https://www.websitecrawler.org)
