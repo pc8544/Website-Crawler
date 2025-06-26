@@ -32,8 +32,8 @@ https://www.websitecrawler.org/api
 Initiate a new crawl for a given domain.
 
 - **Query Parameters**:
-  - `url` (string, required): Target website (e.g. `example.com`)
-  - `limit` (integer, required): Max pages to crawl
+  - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
+  - `limit` (integer, required): Max pages to crawl (free tier is resticted to 100)
   - `key` (string, required): Your API Key
 
 - **Sample Request to initiate crawling**:
