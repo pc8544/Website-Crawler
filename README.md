@@ -45,11 +45,12 @@ Initiate a new crawl for a given domain.
 {
   "status": "Crawling"
 }```
+
 - - **Sample Response 2**:
 ```json
 {
   "status": "Completed!"
-} ```
+} 
 
 ---
 
