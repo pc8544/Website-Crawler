@@ -44,14 +44,16 @@ Initiate a new crawl for a given domain.
 ```json
 {
   "status": "Crawling"
-}```
+}
 
+```
 - - **Sample Response 2**:
+
 ```json
 {
   "status": "Completed!"
 } 
-
+```
 ---
 
 ### 2. `GET /crawl/cwdata`
