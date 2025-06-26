@@ -44,12 +44,12 @@ Initiate a new crawl for a given domain.
 ```json
 {
   "status": "Crawling"
-}
+}```
 - - **Sample Response 2**:
 ```json
 {
   "status": "Completed!"
-}
+} ```
 
 ---
 
@@ -95,6 +95,6 @@ Retrieve the structured crawl output once crawling has completed.
     }
   ]
 }
-
+```
 ##👋 Feedback & Support
 Found a bug or need help? Open an issue or connect via [websitecrawler.org](https://www.websitecrawler.org)
