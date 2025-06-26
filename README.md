@@ -40,16 +40,18 @@ Initiate a new crawl for a given domain.
 
 - https://www.websitecrawler.org/api/crawl/start?url=wptls.com&limit=50&key=YOUR_API_KEY
 
-- - **Sample Response**:
+- - **Sample Response 1**:
 ```json
 {
   "status": "Crawling"
 }
-- - **Sample Response**:
+- - **Sample Response 2**:
 ```json
 {
   "status": "Completed!"
 }
+
+---
 
 ### 2. `GET /crawl/cwdata`
 
