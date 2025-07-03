@@ -118,5 +118,41 @@ Get the last crawled/processed URL
 }
 ```
 
+## 🧩 Integration Example: XML Sitemap Generator
+
+This section highlights how the [`XML-Sitemap-Generator`](https://github.com/pc8544/XML-Sitemap-Generator) project uses the `websitecrawler.org` API to automate XML sitemap generation.
+
+### 🔄 Integration Workflow
+
+The following steps outline the flow between the Website Crawler API and the sitemap generation logic:
+
+1. **Start Crawling**
+   - Use the `crawl/start` endpoint to initiate crawling of your website:
+     ```bash
+     https://www.websitecrawler.org/api/crawl/start?url=example.com&limit=100&key=YOUR_API_KEY
+     ```
+
+2. **Fetch Crawled Data**
+   - Once crawling is complete, retrieve data using:
+     ```bash
+     https://www.websitecrawler.org/api/crawl/cwdata?url=example.com&key=YOUR_API_KEY
+     ```
+   - Response includes structured metadata (titles, links, status codes, etc.) in JSON format.
+
+3. **Process and Transform**
+   - The XML Sitemap Generator parses the response and extracts valid URLs.
+
+4. **Generate Sitemap**
+   - The extracted URLs are then converted into a compliant `sitemap.xml` for SEO optimization and better search engine indexing.
+
+### 📂 Repository
+
+Check out the full implementation here:  
+🔗 [`XML-Sitemap-Generator`](https://github.com/pc8544/XML-Sitemap-Generator)
+
+---
+
+For best results, ensure your API key is valid and your domain permits crawling.
+
 ##👋 Feedback & Support
 Found a bug or need help? Open an issue or connect via [websitecrawler.org](https://www.websitecrawler.org)
