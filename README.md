@@ -116,7 +116,7 @@ Get the last crawled/processed URL
 {
   "currentURL": "https://wptls.com"
 }
-
+```
 
 ##👋 Feedback & Support
 Found a bug or need help? Open an issue or connect via [websitecrawler.org](https://www.websitecrawler.org)
