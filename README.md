@@ -99,5 +99,24 @@ Retrieve the structured crawl output once crawling has completed.
   ]
 }
 ```
+### 1. `GET /crawl/currentURL`
+
+Get the last crawled/processed URL
+
+- **Query Parameters**:
+  - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
+  - `key` (string, required): Your API Key
+
+- **Sample Request to get the last crawled/processed URL**:
+
+- https://www.websitecrawler.org/api/crawl/currentURL?url=wptls.com&key=YOUR_API_KEY
+
+- - **Sample Response**:
+```json
+{
+  "currentURL": "https://wptls.com"
+}
+
+
 ##👋 Feedback & Support
 Found a bug or need help? Open an issue or connect via [websitecrawler.org](https://www.websitecrawler.org)
