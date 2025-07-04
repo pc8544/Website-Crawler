@@ -99,7 +99,7 @@ Retrieve the structured crawl output once crawling has completed.
   ]
 }
 ```
-### 1. `GET /crawl/currentURL`
+### 3. `GET /crawl/currentURL`
 
 Get the last crawled/processed URL
 
