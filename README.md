@@ -118,6 +118,25 @@ Get the last crawled/processed URL
 }
 ```
 
+### 4. `GET /crawl/clear`
+
+Clear the previous job in case you want to rerun the crawler.
+
+- **Query Parameters**:
+  - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
+  - `key` (string, required): Your API Key
+
+- **Sample Request to get the last crawled/processed URL**:
+
+- https://www.websitecrawler.org/api/crawl/clear?url=wptls.com&key=YOUR_API_KEY
+
+- - **Sample Response**:
+```json
+{
+  "clearStatus": "Job cannot be cleared as either the URL of the entered website is being crawled."
+}
+```
+
 ## 🧩 Integration Example: XML Sitemap Generator
 
 This section highlights how the [`XML-Sitemap-Generator`](https://github.com/pc8544/XML-Sitemap-Generator) project uses the `websitecrawler.org` API to automate XML sitemap generation.
