@@ -133,7 +133,7 @@ Clear the previous job in case you want to rerun the crawler.
 - - **Sample Response**:
 ```json
 {
-  "clearStatus": "Job cannot be cleared as either the URL of the entered website is being crawled."
+  "clearStatus": "Job cannot be cleared as the URL of the entered website is being crawled."
 }
 ```
 
