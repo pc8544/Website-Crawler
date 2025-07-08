@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 /**
  *
- * @author Pramod Choudhary (https://www.websitecrawler.org)
+ * @author Pramod Choudhary
  */
 public class WebsiteCrawlerClient {
 
