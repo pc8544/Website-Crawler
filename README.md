@@ -14,10 +14,14 @@ To use the API, you'll need an **API Key**.
 1. Visit [websitecrawler.org](https://www.websitecrawler.org)
 2. Create an account or log in
 3. Go to the **Settings** page to generate your API key
-
-Pass your key as a query parameter (`key`) in all requests.
-
 ---
+
+##  Example usage of the Java Library
+The following code demonstrates the basic use of Website Crawler API. In the program, we will submit a URL to websitecrawler.org for it to crawl and retrive the status, currentURL and the data via the API.
+
+###How to use the library?
+
+Download the jar file WebsiteCrawlerSDK-Java-1.0.jar and add it as a dependency in your java project. Create the WebsiteCrawlerConfig object as shown in the code. Pass the WebsiteCrawlerConfig object to WebsiteCrawlerClient. Use the WebsiteCrawlerConfig object to call the methods.
 
 ```java
 
@@ -83,7 +87,10 @@ https://www.websitecrawler.org/api
 
 ### 1. `GET /crawl/start`
 
-Initiate a new crawl for a given domain.
+Pass your key as a query parameter (`key`) in all requests.
+
+
+Initiate a new crawl for a given domain. 
 
 - **Query Parameters**:
   - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
