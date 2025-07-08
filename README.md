@@ -19,6 +19,60 @@ Pass your key as a query parameter (`key`) in all requests.
 
 ---
 
+```java
+
+package wc.WebsiteCrawlerAPIUsageDemo;
+
+import wc.websitecrawlersdk.WebsiteCrawlerClient;
+import wc.websitecrawlersdk.WebsiteCrawlerConfig;
+
+/**
+ *
+ * @author Pramod
+ */
+public class WebsiteCrawlerAPIUsageDemo {
+
+    public static void main(String[] args) throws InterruptedException {
+        String status;
+        String currenturl;
+        String data;
+        WebsiteCrawlerConfig cfg = new WebsiteCrawlerConfig(YOUR_API_KEY); //replace YOUR_API_KEY with your api key
+        WebsiteCrawlerClient client = new WebsiteCrawlerClient(cfg);
+
+        client.submitUrlToWebsiteCrawler(URL, LIMIT); //replace "URL" with the URL you want Websitecrawler.org to crawl and the number of URLs
+        boolean taskStatus;
+        while (true) {
+            taskStatus = client.getTaskStatus();
+            System.out.println(taskStatus + "<<task status");
+            Thread.sleep(9000);
+            if (taskStatus == true) {
+                status = client.getCrawlStatus();
+                currenturl = client.getCurrentURL();
+                data = client.getcwData();
+                System.out.println("Crawl status::");
+                if (status != null) {
+                    System.out.println(status);
+                }
+                if (status != null && status.equals("Crawling")) {
+                    System.out.println("Current URL::" + currenturl);
+                }
+                if (status != null && status.equals("Completed!")) {
+                    System.out.println("Task has been completed.. closing the while loop");
+                    if (data != null) {
+                        System.out.println("Json Data::" + data);
+                        Thread.sleep(20000);
+                        break;
+                    }
+                }
+
+            }
+        }
+        System.out.println("job over");
+    }
+}
+
+```
+
 ## 🌐 Base URL
 
 https://www.websitecrawler.org/api
