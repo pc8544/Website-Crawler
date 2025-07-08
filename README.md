@@ -24,10 +24,9 @@ https://www.websitecrawler.org/api
 
 ## 📡 Endpoints
 
+Note: Pass your key as a query parameter (`key`) in all requests.
+
 ### 1. `GET /crawl/start`
-
-Pass your key as a query parameter (`key`) in all requests.
-
 
 Initiate a new crawl for a given domain. 
 
