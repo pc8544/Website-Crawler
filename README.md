@@ -153,7 +153,7 @@ This Java demo showcases how to use the `WebsiteCrawlerSDK` to interact with [we
 
 ## 📦 Prerequisites
 
-- Java 8 or higher
+- Java 11 or higher
 - Maven build system
 - API key from [WebsiteCrawler.org](https://www.websitecrawler.org)
 
