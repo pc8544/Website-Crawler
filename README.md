@@ -16,67 +16,6 @@ To use the API, you'll need an **API Key**.
 3. Go to the **Settings** page to generate your API key
 ---
 
-##  Example usage of the Java Library
-The following code demonstrates the basic use of Website Crawler API. In the program, we will submit a URL to websitecrawler.org for it to crawl and retrive the status, currentURL and the data via the API.
-
-###How to use the library?
-
-Download the jar file WebsiteCrawlerSDK-Java-1.0.jar and add it as a dependency in your java project. Create the WebsiteCrawlerConfig object as shown in the code. Pass the WebsiteCrawlerConfig object to WebsiteCrawlerClient. Use the WebsiteCrawlerConfig object to call the methods.
-
-```java
-
-package wc.WebsiteCrawlerAPIUsageDemo;
-
-import wc.websitecrawlersdk.WebsiteCrawlerClient;
-import wc.websitecrawlersdk.WebsiteCrawlerConfig;
-
-/**
- *
- * @author Pramod
- */
-public class WebsiteCrawlerAPIUsageDemo {
-
-    public static void main(String[] args) throws InterruptedException {
-        String status;
-        String currenturl;
-        String data;
-        WebsiteCrawlerConfig cfg = new WebsiteCrawlerConfig(YOUR_API_KEY); //replace YOUR_API_KEY with your api key
-        WebsiteCrawlerClient client = new WebsiteCrawlerClient(cfg);
-
-        client.submitUrlToWebsiteCrawler(URL, LIMIT); //replace "URL" with the URL you want Websitecrawler.org to crawl and the number of URLs
-        boolean taskStatus;
-        while (true) {
-            taskStatus = client.getTaskStatus();
-            System.out.println(taskStatus + "<<task status");
-            Thread.sleep(9000);
-            if (taskStatus == true) {
-                status = client.getCrawlStatus();
-                currenturl = client.getCurrentURL();
-                data = client.getcwData();
-                System.out.println("Crawl status::");
-                if (status != null) {
-                    System.out.println(status);
-                }
-                if (status != null && status.equals("Crawling")) {
-                    System.out.println("Current URL::" + currenturl);
-                }
-                if (status != null && status.equals("Completed!")) {
-                    System.out.println("Task has been completed.. closing the while loop");
-                    if (data != null) {
-                        System.out.println("Json Data::" + data);
-                        Thread.sleep(20000);
-                        break;
-                    }
-                }
-
-            }
-        }
-        System.out.println("job over");
-    }
-}
-
-```
-
 ## 🌐 Base URL
 
 https://www.websitecrawler.org/api
@@ -196,6 +135,67 @@ Clear the previous job in case you want to rerun the crawler.
 {
   "clearStatus": "Job cannot be cleared as the URL of the entered website is being crawled."
 }
+```
+
+##  Example usage of the Java Library
+The following code demonstrates the basic use of Website Crawler API. In the program, we will submit a URL to websitecrawler.org for it to crawl and retrive the status, currentURL and the data via the API.
+
+### How to use the Java library?
+
+Download the jar file WebsiteCrawlerSDK-Java-1.0.jar and add it as a dependency in your java project. Create the WebsiteCrawlerConfig object as shown in the code. Pass the WebsiteCrawlerConfig object to WebsiteCrawlerClient. Use the WebsiteCrawlerConfig object to call the methods.
+
+```java
+
+package wc.WebsiteCrawlerAPIUsageDemo;
+
+import wc.websitecrawlersdk.WebsiteCrawlerClient;
+import wc.websitecrawlersdk.WebsiteCrawlerConfig;
+
+/**
+ *
+ * @author Pramod
+ */
+public class WebsiteCrawlerAPIUsageDemo {
+
+    public static void main(String[] args) throws InterruptedException {
+        String status;
+        String currenturl;
+        String data;
+        WebsiteCrawlerConfig cfg = new WebsiteCrawlerConfig(YOUR_API_KEY); //replace YOUR_API_KEY with your api key
+        WebsiteCrawlerClient client = new WebsiteCrawlerClient(cfg);
+
+        client.submitUrlToWebsiteCrawler(URL, LIMIT); //replace "URL" with the URL you want Websitecrawler.org to crawl and the number of URLs
+        boolean taskStatus;
+        while (true) {
+            taskStatus = client.getTaskStatus();
+            System.out.println(taskStatus + "<<task status");
+            Thread.sleep(9000);
+            if (taskStatus == true) {
+                status = client.getCrawlStatus();
+                currenturl = client.getCurrentURL();
+                data = client.getcwData();
+                System.out.println("Crawl status::");
+                if (status != null) {
+                    System.out.println(status);
+                }
+                if (status != null && status.equals("Crawling")) {
+                    System.out.println("Current URL::" + currenturl);
+                }
+                if (status != null && status.equals("Completed!")) {
+                    System.out.println("Task has been completed.. closing the while loop");
+                    if (data != null) {
+                        System.out.println("Json Data::" + data);
+                        Thread.sleep(20000);
+                        break;
+                    }
+                }
+
+            }
+        }
+        System.out.println("job over");
+    }
+}
+
 ```
 
 ## 🧩 Integration Example: XML Sitemap Generator
