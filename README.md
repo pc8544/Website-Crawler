@@ -198,7 +198,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-
 ```
 ##Java
 This Java demo showcases how to use the `WebsiteCrawlerSDK` to interact with [websitecrawler.org](https://www.websitecrawler.org), enabling automated URL submission, status tracking, and retrieval of crawl data via their API.
