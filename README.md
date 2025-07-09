@@ -136,7 +136,7 @@ Clear the previous job in case you want to rerun the crawler.
 }
 ```
 
-# 🕸️ WebsiteCrawlerAPIUsageDemo
+# 🕸️ Website Crawler API Usage Demo
 
 The Python and Java demos showcases how to use the `WebsiteCrawlerSDK` to interact with [websitecrawler.org](https://www.websitecrawler.org), enabling automated URL submission, status tracking, and retrieval of crawl data via their API.
 
