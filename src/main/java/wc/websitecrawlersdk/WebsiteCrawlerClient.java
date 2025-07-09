@@ -152,12 +152,15 @@ public class WebsiteCrawlerClient {
             this.taskStarted = true;
             String wtStr = this.createCrawlWaitTimeRequest();
             String responseFromApi = getResponseFromAPI(wtStr);
+           // System.out.println(responseFromApi + "<<waitTime");
             if (responseFromApi != null) {
                 JSONObject jobj = new JSONObject(responseFromApi);
                 if (jobj.has("waitTime")) {
                     int waitingtime = jobj.getInt("waitTime");
                     if (waitingtime > 0) {
+                       // System.out.println("Received wait time.. cancelling the task");
                         this.waitTime = waitingtime;
+                        // System.out.println("DASKJSADJKSAJD::" + cwData);
                         ftr[0].cancel(false);
                         ftr[1] = sec.scheduleAtFixedRate(mainTask(url, limit), 0, this.waitTime, TimeUnit.SECONDS);
 
