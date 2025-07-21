@@ -24,21 +24,46 @@ https://www.websitecrawler.org/api
 
 ## 📡 Endpoints
 
-Note: Pass your key as a query parameter (`key`) in all requests.
+### 1. `GET /crawl/authenticate`
 
-### 1. `GET /crawl/start`
+Get a token 
 
-Initiate a new crawl for a given domain. 
-
-- **Query Parameters**:
-  - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
-  - `limit` (integer, required): Max pages to crawl (free tier is resticted to 100)
+- **JSON Payload**:
   - `key` (string, required): Your API Key
 
 - **Sample Request to initiate crawling**:
 
-- https://www.websitecrawler.org/api/crawl/start?url=wptls.com&limit=50&key=YOUR_API_KEY
+```
+curl -X POST https://www.websitecrawler.org/api/crawl/authenticate \
+ -H "Content-Type: application/json" \
+ -d '{"apiKey": "your_api_key"}'
 
+```
+- - **Sample Response 1**:
+```json
+{
+  "token": "api_generated_token"
+}
+
+```
+---
+### 2. `GET /crawl/start`
+
+Initiate a new crawl for a given domain. 
+
+- **Keys required in the JSON payload**:
+  - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
+  - `limit` (integer, required): Max pages to crawl (free tier is resticted to 100)
+
+- **Sample Request to initiate crawling**:
+
+```
+curl -X POST https://www.websitecrawler.org/api/crawl/start \
+     -H "Authorization: Bearer api_generated_token" \
+ -H "Content-Type: application/json" \
+ -d '{"url": "your_url","limit":"your_limit"}'
+
+```
 - - **Sample Response 1**:
 ```json
 {
@@ -55,13 +80,21 @@ Initiate a new crawl for a given domain.
 ```
 ---
 
-### 2. `GET /crawl/cwdata`
+### 3. `GET /crawl/cwdata`
 
 Retrieve the structured crawl output once crawling has completed.
 
-- **Query Parameters**:
+- **Required key in JSON payload**:
   - `url` (string, required): Target website (e.g. `example.com`)
-  - `key` (string, required): Your API Key
+ 
+  - - **Sample Request to get data**:
+```
+curl -X POST https://www.websitecrawler.org/api/crawl/cwdata \
+     -H "Authorization: Bearer api_generated_token" \
+-H "Content-Type: application/json" \
+ -d '{"url": "your_url"}'
+
+```
 
 - - **Sample Response**:
 ```json
@@ -98,18 +131,22 @@ Retrieve the structured crawl output once crawling has completed.
   ]
 }
 ```
-### 3. `GET /crawl/currentURL`
+### 4. `GET /crawl/currentURL`
 
 Get the last crawled/processed URL
 
-- **Query Parameters**:
+- **Required key in the JSON payload**:
   - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
-  - `key` (string, required): Your API Key
 
 - **Sample Request to get the last crawled/processed URL**:
 
-- https://www.websitecrawler.org/api/crawl/currentURL?url=wptls.com&key=YOUR_API_KEY
+```
+curl -X POST https://www.websitecrawler.org/api/crawl/currentURL \
+     -H "Authorization: Bearer api_generated_token" \
+-H "Content-Type: application/json" \
+ -d '{"url": "your_url"}'
 
+```
 - - **Sample Response**:
 ```json
 {
@@ -117,18 +154,22 @@ Get the last crawled/processed URL
 }
 ```
 
-### 4. `GET /crawl/clear`
+### 5. `GET /crawl/clear`
 
 Clear the previous job in case you want to rerun the crawler.
 
-- **Query Parameters**:
+- **Required key**:
   - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
-  - `key` (string, required): Your API Key
 
-- **Sample Request to get the last crawled/processed URL**:
+- **Sample Request to clear the job**:
 
-- https://www.websitecrawler.org/api/crawl/clear?url=wptls.com&key=YOUR_API_KEY
+```
+curl -X POST https://www.websitecrawler.org/api/crawl/clear \
+     -H "Authorization: Bearer api_generated_token" \
+-H "Content-Type: application/json" \
+ -d '{"url": "your_url"}'
 
+```
 - - **Sample Response**:
 ```json
 {
