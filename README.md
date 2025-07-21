@@ -26,20 +26,19 @@ https://www.websitecrawler.org/api
 
 ### 1. `GET /crawl/authenticate`
 
-Get a token 
+Obtain an access token through the API. This token must be included in all subsequent requests.
 
-- **JSON Payload**:
-  - `key` (string, required): Your API Key
+- **Key required in the JSON payload**:
+    - `key` (string): Your API Key
 
-- **Sample Request to initiate crawling**:
-
+- **Sample Request to get the token**:
 ```
 curl -X POST https://www.websitecrawler.org/api/crawl/authenticate \
  -H "Content-Type: application/json" \
  -d '{"apiKey": "your_api_key"}'
 
 ```
-- - **Sample Response 1**:
+- - **Sample Response**:
 ```json
 {
   "token": "api_generated_token"
