@@ -178,7 +178,7 @@ curl -X POST https://www.websitecrawler.org/api/crawl/clear \
 
 # 🕸️ Website Crawler API Usage Demo
 
-The Python and Java demos showcases how to use the `WebsiteCrawlerSDK` to interact with [websitecrawler.org](https://www.websitecrawler.org), enabling automated URL submission, status tracking, and retrieval of crawl data via their API.
+The Python, Java, nodejs demos showcases how to use the `WebsiteCrawlerSDK` to interact with [websitecrawler.org](https://www.websitecrawler.org), enabling automated URL submission, status tracking, and retrieval of crawl data via their API.
 
 ## Python
 
@@ -327,6 +327,36 @@ public class WebsiteCrawlerAPIUsageDemo {
         System.out.println("job over");
     }
 }
+
+```
+# nodejs
+
+install the website crawler sdk
+```
+npm i website-crawler-sdk
+
+```
+change YOUR_API_KEY,YOUR_LIMIT,YOUR_URL in the following demo script and run it. The objective of this script is to submit a URL to websitecrawler.org, get crawl status, the current URL being processed by websitecrawler in realtime, and retrieve the structured data once the task of crawling the website is finished.
+
+```
+const { WebsiteCrawlerConfig, WebsiteCrawlerClient } = require('website-crawler-sdk');
+
+const config = new WebsiteCrawlerConfig('YOUR_API_KEY');
+const client = new WebsiteCrawlerClient(config);
+
+client.submitUrlToWebsiteCrawler('YOUR_URL', 'YOUR_LIMIT');
+
+const intervalId = setInterval(() => {
+  const status = client.getCrawlStatus();
+  console.log('Status:', status);
+  console.log('Current URL:', client.getCurrentURL());
+
+  if (status === 'Completed!') {
+    console.log('Crawl Data:', client.getCrawlData());
+    console.log('Job completed...');
+    clearInterval(intervalId);
+  }
+}, 3000);
 
 ```
 
