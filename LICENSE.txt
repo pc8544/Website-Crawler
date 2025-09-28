@@ -1,8 +1,8 @@
-This project uses the Jsoup library <https://jsoup.org/> developed by Jonathan Hedley.
+This project uses the Jsoup library. Jsoup is licensed under the MIT License:
 
-Jsoup is licensed under the MIT License:
+The MIT License
 
-Copyright (c) 2009 - 2025 Jonathan Hedley
+Copyright (c) 2009-2025 Jonathan Hedley <https://jsoup.org/>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
