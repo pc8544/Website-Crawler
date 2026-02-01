@@ -24,7 +24,7 @@ https://www.websitecrawler.org/api
 
 ## 📡 Endpoints
 
-### 1. `GET /crawl/authenticate`
+### 1. `POST /crawl/authenticate`
 
 Obtain an access token through the API. This token must be included in all subsequent requests.
 
@@ -46,7 +46,7 @@ curl -X POST https://www.websitecrawler.org/api/crawl/authenticate \
 
 ```
 ---
-### 2. `GET /crawl/start`
+### 2. `POST /crawl/start`
 
 Initiate a new crawl for a given domain. 
 
@@ -79,7 +79,7 @@ curl -X POST https://www.websitecrawler.org/api/crawl/start \
 ```
 ---
 
-### 3. `GET /crawl/cwdata`
+### 3. `POST /crawl/cwdata`
 
 Retrieve the structured crawl output once crawling has completed.
 
@@ -130,7 +130,7 @@ curl -X POST https://www.websitecrawler.org/api/crawl/cwdata \
   ]
 }
 ```
-### 4. `GET /crawl/currentURL`
+### 4. `POST /crawl/currentURL`
 
 Get the last crawled/processed URL
 
@@ -153,7 +153,7 @@ curl -X POST https://www.websitecrawler.org/api/crawl/currentURL \
 }
 ```
 
-### 5. `GET /crawl/clear`
+### 5. `POST /crawl/clear`
 
 Clear the previous job in case you want to rerun the crawler.
 
