@@ -176,6 +176,29 @@ curl -X POST https://www.websitecrawler.org/api/crawl/clear \
 }
 ```
 
+### 6. `POST /crawl/status`
+
+Get the current crawl status for a website/url
+
+- **Required key in the JSON payload**:
+  - `url` (string, required): Target website (e.g. `example.com`) i.e. a non redirecting main URL of the website.
+
+- **Sample Request to get the crawl status for a given URL**:
+
+```
+curl -X POST https://www.websitecrawler.org/api/crawl/status \
+     -H "Authorization: Bearer api_generated_token" \
+-H "Content-Type: application/json" \
+ -d '{"url": "your_url"}'
+
+```
+- - **Sample Response**:
+```json
+{
+  "status": "Crawling"
+}
+```
+
 # 🕸️ Website Crawler API Usage Demo
 
 The Python, Java, nodejs demos showcases how to use the `WebsiteCrawlerSDK` to interact with [websitecrawler.org](https://www.websitecrawler.org), enabling automated URL submission, status tracking, and retrieval of crawl data via their API.
